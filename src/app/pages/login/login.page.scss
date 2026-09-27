@@ -1,0 +1,22 @@
+.error {
+  color: var(--ion-color-danger);
+  font-size: 13px;
+  margin: 4px 16px 12px;
+}
+
+.password-item {
+  --highlight-color-valid: var(--ion-color-primary, #3880ff);
+  --highlight-color-invalid: var(--ion-color-primary, #3880ff);
+  --highlight-background: var(--ion-color-primary, #3880ff);
+}
+
+.hint {
+  color: var(--ion-text-color, inherit);
+  font-size: 13px;
+  margin: 4px 16px 12px;
+}
+
+.link {
+  text-align: center;
+  margin-top: 16px;
+}

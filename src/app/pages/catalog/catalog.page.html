@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Catálogo</ion-title>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/cart">
+        <ion-icon slot="icon-only" name="cart-outline"></ion-icon>
+        <ion-badge color="danger" *ngIf="cart.itemCount > 0">{{ cart.itemCount }}</ion-badge>
+      </ion-button>
+      <ion-button *ngIf="!auth.isAuthenticated()" routerLink="/login">
+        <ion-icon slot="icon-only" name="person-outline"></ion-icon>
+      </ion-button>
+      <ion-button *ngIf="auth.isAuthenticated()" (click)="logout()">
+        <ion-icon slot="icon-only" name="log-out-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <p class="welcome" *ngIf="auth.currentUser">Hola, {{ auth.currentUser.name }}</p>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" sizeMd="4" *ngFor="let product of products">
+        <ion-card>
+          <div class="product-image">
+            <img [src]="product.image" [alt]="product.name" />
+          </div>
+          <ion-card-header>
+            <ion-card-title>{{ product.name }}</ion-card-title>
+            <ion-card-subtitle>{{ formatCop(product.price) }}</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-button expand="block" (click)="addToCart(product)">
+              Agregar al carrito
+            </ion-button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

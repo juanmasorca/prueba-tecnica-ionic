@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/catalog"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Carrito</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list *ngIf="cart.items.length > 0; else emptyCart">
+    <ion-item *ngFor="let item of cart.items">
+      <ion-thumbnail slot="start">
+        <img [src]="item.product.image" [alt]="item.product.name" />
+      </ion-thumbnail>
+      <ion-label>
+        <h2>{{ item.product.name }}</h2>
+        <p>{{ formatCop(item.product.price) }}</p>
+      </ion-label>
+      <div class="qty">
+        <ion-button size="small" fill="clear" (click)="decrease(item)">
+          <ion-icon slot="icon-only" name="remove-outline"></ion-icon>
+        </ion-button>
+        <span>{{ item.quantity }}</span>
+        <ion-button size="small" fill="clear" (click)="increase(item)">
+          <ion-icon slot="icon-only" name="add-outline"></ion-icon>
+        </ion-button>
+        <ion-button size="small" fill="clear" color="danger" (click)="remove(item)">
+          <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+        </ion-button>
+      </div>
+    </ion-item>
+  </ion-list>
+
+  <ng-template #emptyCart>
+    <ion-card>
+      <ion-card-content>
+        <p>No hay productos en el carrito.</p>
+        <ion-button expand="block" routerLink="/catalog">Ir al catálogo</ion-button>
+      </ion-card-content>
+    </ion-card>
+  </ng-template>
+</ion-content>
+
+<ion-footer *ngIf="cart.items.length > 0">
+  <ion-toolbar>
+    <ion-title size="small">Total: {{ formatCop(cart.total) }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button color="primary" (click)="checkout()">Finalizar compra</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

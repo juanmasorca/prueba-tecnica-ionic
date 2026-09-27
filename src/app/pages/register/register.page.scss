@@ -1,0 +1,25 @@
+.error {
+  color: var(--ion-color-danger);
+  font-size: 13px;
+  margin: 4px 16px 12px;
+}
+
+.link {
+  text-align: center;
+  margin-top: 16px;
+}
+
+.password-rules {
+  list-style: disc;
+  margin: 8px 16px 16px;
+  padding-left: 18px;
+  font-size: 13px;
+}
+
+.password-rules .ok {
+  color: var(--ion-color-success);
+}
+
+.password-rules .fail {
+  color: var(--ion-color-danger);
+}

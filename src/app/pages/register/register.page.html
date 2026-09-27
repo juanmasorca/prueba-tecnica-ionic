@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/login"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Registro</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <ion-item>
+      <ion-input
+        type="text"
+        label="Nombre"
+        labelPlacement="stacked"
+        formControlName="name"
+        autocomplete="name"
+      ></ion-input>
+    </ion-item>
+    <p class="error" *ngIf="submitted && form.controls.name.invalid">
+      El nombre es obligatorio.
+    </p>
+
+    <ion-item>
+      <ion-input
+        type="email"
+        label="Email"
+        labelPlacement="stacked"
+        formControlName="email"
+        autocomplete="email"
+      ></ion-input>
+    </ion-item>
+    <p class="error" *ngIf="submitted && form.controls.email.invalid">
+      Ingresa un email válido.
+    </p>
+
+    <ion-item>
+      <ion-input
+        type="password"
+        label="Contraseña"
+        labelPlacement="stacked"
+        formControlName="password"
+        autocomplete="new-password"
+      ></ion-input>
+    </ion-item>
+    <ul class="password-rules">
+      <li
+        *ngFor="let rule of passwordRules"
+        [class.ok]="passwordMeets(rule.id)"
+        [class.fail]="!passwordMeets(rule.id)"
+      >
+        {{ rule.label }}
+      </li>
+    </ul>
+
+    <ion-button class="ion-margin-top" expand="block" type="submit">Crear cuenta</ion-button>
+  </form>
+
+  <p class="link">
+    ¿Ya tienes cuenta?
+    <a routerLink="/login" [queryParams]="{ returnUrl: returnUrl }">Inicia sesión</a>
+  </p>
+</ion-content>

@@ -1,0 +1,10 @@
+.qty {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+ion-thumbnail img {
+  object-fit: contain;
+  background: var(--ion-color-light, #f4f5f8);
+}

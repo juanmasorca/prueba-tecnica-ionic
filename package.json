@@ -1,0 +1,45 @@
+{
+  "name": "prueba-tecnica-ionic",
+  "version": "1.0.0",
+  "author": "Prueba técnica",
+  "homepage": "https://ionicframework.com/",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "lint": "ng lint",
+    "cordova:android": "ng build --configuration production --base-href ./ && cordova build android"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/common": "^19.2.0",
+    "@angular/compiler": "^19.2.0",
+    "@angular/core": "^19.2.0",
+    "@angular/forms": "^19.2.0",
+    "@angular/platform-browser": "^19.2.0",
+    "@angular/platform-browser-dynamic": "^19.2.0",
+    "@angular/router": "^19.2.0",
+    "@ionic/angular": "^8.5.0",
+    "ionicons": "^7.4.0",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.15.0"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^19.2.0",
+    "@angular/cli": "^19.2.0",
+    "@angular/compiler-cli": "^19.2.0",
+    "@angular/language-service": "^19.2.0",
+    "@ionic/angular-toolkit": "^12.1.1",
+    "cordova-android": "^15.1.0",
+    "typescript": "~5.7.0"
+  },
+  "description": "E-commerce básico Ionic + Cordova",
+  "cordova": {
+    "plugins": {},
+    "platforms": [
+      "android"
+    ]
+  }
+}

@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Compra exitosa</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" *ngIf="order">
+  <div class="status">
+    <ion-icon name="checkmark-circle-outline" color="success"></ion-icon>
+    <h1>¡Gracias por tu compra!</h1>
+    <p>El pedido se guardó de forma local (simulación, sin pago real).</p>
+  </div>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Pedido {{ order.id.slice(0, 8) }}</ion-card-title>
+      <ion-card-subtitle>{{ order.createdAt | date: 'short' }}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let item of order.items">
+          <ion-label>
+            {{ item.product.name }} × {{ item.quantity }}
+          </ion-label>
+          <ion-note slot="end">{{ formatCop(item.product.price * item.quantity) }}</ion-note>
+        </ion-item>
+      </ion-list>
+      <p class="total"><strong>Total: {{ formatCop(order.total) }}</strong></p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-button expand="block" routerLink="/catalog">Volver al catálogo</ion-button>
+</ion-content>
