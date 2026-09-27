@@ -12,7 +12,6 @@ Aplicación móvil híbrida de e-commerce básico construida con **Ionic + Angul
 | Pedidos | Clave `orders` y último pedido `lastOrder` |
 | Productos | 3 ítems en código + imágenes SVG dummy en `src/assets/products` |
 | Auth avanzada | No. Contraseñas en claro solo para la simulación. Registro exige 6+ caracteres, mayúscula, minúscula y número |
-| Módulo de puntos por cuota | Fuera de la app: ver [docs/analisis-puntos-cuota.md](docs/analisis-puntos-cuota.md) |
 
 Flujo de pantallas: [docs/flujo-aplicacion.md](docs/flujo-aplicacion.md). Plan de construcción: [PlanAccion.md](PlanAccion.md).
 
@@ -71,15 +70,6 @@ Ese script compila la web en `www/` con `base href` relativo y luego ejecuta `co
 APK de debug generado:
 
 `platforms/android/app/build/outputs/apk/debug/app-debug.apk` (unos 3.8 MB)
-
-Para repetir el build hace falta:
-
-- `ANDROID_HOME` (y `ANDROID_SDK_ROOT`) apuntando al SDK. Aquí: `C:\Users\ACER\AppData\Local\Android\Sdk`.
-- `JAVA_HOME` a un JDK 17 o 21. El `java` del PATH es un lanzador de Java 8 roto, y el JBR de Android Studio es Java 25, que Gradle 8.14 no admite. Este build usó Temurin 21 en `%LOCALAPPDATA%\jdks\jdk-21.0.12.1+1`.
-- Plataforma Android 36 (`platforms/android-36`). Compile y target SDK están en 36 en `config.xml`.
-- Gradle 8.14 en el PATH solo la primera vez, para crear el wrapper (aquí: `%LOCALAPPDATA%\gradle\gradle-8.14.2\bin`). Después Cordova usa el wrapper de `platforms/android`.
-
-Cordova está deprecado frente a Capacitor; se usa porque el enunciado lo exige.
 
 ### Notas de build nativo
 
